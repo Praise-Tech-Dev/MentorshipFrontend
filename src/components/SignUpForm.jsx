@@ -47,6 +47,11 @@ export default function SignUpForm() {
       <p className='text-[20px]'>Need someone to Guide You through your tech journey? Join Mentorly </p>
       <form className='flex flex-col '>
         <input type="text" onChange={(e)=>setUsername(e.target.value)} value={username} placeholder='Email or Phone' className='border-[1px] border-white p-4 mt-7'/>
+        <select name="user-role" id="user-role" className='border-[1px] border-white p-4 mt-7 outline-none'>
+          <option value="mentee" className='bg-gray-900'>Select Role--</option>
+          <option value="mentor" className='bg-gray-900'>Mentor</option>
+          <option value="mentee" className='bg-gray-900'>Mentee</option>
+        </select>
         <div className='relative border  mt-7'>
           <div onClick={()=>setVisibility(!visibility)} className="absolute right-0 bottom-0 h-full border flex items-center cursor-pointer">
             <i className={`px-5 pi ${visibility? 'pi-eye-slash':'pi-eye'} text-lg`}></i>
@@ -59,6 +64,7 @@ export default function SignUpForm() {
           </div>
           <input type={visibility?'text':'password'} onChange={(e)=>setConfirmPassword(e.target.value)} value={confirmPassword} placeholder='Confirm Password' className='w-full border-[1px] border-white p-4' />
         </div>
+
 
         {
           loading ? 

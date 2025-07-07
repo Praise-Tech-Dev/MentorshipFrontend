@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "James Jones",
+    "role": "Mentor",
+    "skills": ["skill 1", "skill 2"]
+  },
+  {
+    "id": 2,
+    "name": "John Daniel",
+    "role": "Mentor",
+    "skills": ["skill 2", "skill 3"]
+  },
+  {
+    "id": 3,
+    "name": "Praise Holmes",
+    "role": "Mentor",
+    "skills": ["skill 3", "skill 1"]
+  }
+]
