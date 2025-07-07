@@ -4,9 +4,12 @@ import MentorsViewBox from "../components/MentorsViewBox";
 import MentorSideBar from "../components/MentorSideBar";
 
 export default function Profile() {
-  const user = { name: "James Jones", role: "Mentor" };
+  // const user = { name: "James Jones", role: "Mentor" };
   const [openSideSection, setOpenSideSection] = useState(false);
   const location = useLocation();
+  const user = JSON.parse(localStorage.getItem("auth")).user;
+  console.log(user);
+  
 
   const subpages = ["/profile/edit", "/profile/mentor"];
 
