@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import { userLogin } from '../utils/api/usersApi'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
+
 
 export default function Form() {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [visibility, setVisibility] = useState(false)
+  const [loginError, setLoginError] = useState(null)
    
   // const navigate = useNavigate()
 
@@ -14,9 +18,31 @@ export default function Form() {
     e.preventDefault()
     setLoading(true)
     const data = {
-      username: username,
+      email: email,
       password: password,
     } 
+
+    try{
+      const response = await axios.post("https://mentorshipbackend-fetn.onrender.com/api/auth/login", data)
+
+      console.log("Login successful", response.user);
+
+      if(response){
+        // Save the user data to localStorage
+        localStorage.setItem('auth', JSON.stringify(response.data))
+        
+        // Redirect to the home page or any other page
+        window.location.href = '/profile/edit';
+      }
+      
+    }catch(error){
+      // setLoginError();
+      console.error("Login failed")
+      setLoginError("Invalid Credentials or Server Error.")
+      
+      // console.error("Error logging in:", error);
+      // alert("Login failed. Please check your credentials.");
+    }
 
     // await userLogin(data).then(res=>{
     //   console.log('response from logoin', res.data);
@@ -43,9 +69,10 @@ export default function Form() {
 
         </div>
       </div>
+      {loginError && <p className='text-red-500 text-sm'>{loginError}</p>}
       <p className='text-[20px]'>Develop your tech dreams with Mentorly </p>
       <form className='flex flex-col '>
-        <input type="text" onChange={(e)=>setUsername(e.target.value)} value={username} placeholder='Email or Phone' className='border-[1px] border-white p-4 mt-7'/>
+        <input type="email" onChange={(e)=>setEmail(e.target.value)} value={email} placeholder='Email' className='border-[1px] border-white p-4 mt-7'/>
         <div className='relative border  mt-7'>
           <div onClick={()=>setVisibility(!visibility)} className="absolute right-0 bottom-0 h-full border flex items-center cursor-pointer">
             <i className={`px-5 pi ${visibility? 'pi-eye-slash':'pi-eye'} text-lg`}></i>
