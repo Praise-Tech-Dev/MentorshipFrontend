@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -16,10 +15,10 @@ export default function Header() {
         </div>
       <div className="flex justify-between items-center px-2 md:gap-8">
         <ul className='flex justify-around md:gap-8'>
-              <li className="px-2"><Link to="/">Home</Link></li>
-              <li className="px-2"><Link to="/login">Login</Link></li>
+              <li className="px-2"><a href="/">Home</a></li>
+              <li className="px-2"><a href="/login">Login</a></li>
           </ul>
-        <button className='bg-blue-700 rounded text-white md:p-3 p-2 md:text-lg text-base '><Link to='/profile'>Dashboard</Link></button>
+        <button className='bg-blue-700 rounded text-white md:p-3 p-2 md:text-lg text-base '><a href='/profile'>Dashboard</a></button>
       </div>
     </div>
   )
