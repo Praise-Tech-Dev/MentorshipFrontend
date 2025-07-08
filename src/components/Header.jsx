@@ -1,26 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <div className='flex justify-between py-2 px-30 m-auto items-center  bg-gray-900 text-white'>
+    <div className='flex md:justify-between py-2 md:px-30  m-auto items-center  bg-gray-900 text-white w-full'>
         <div className='flex px-6'>
-            <div className="w-1/12 h-1/12  mr-3">
+            <div className="w-1/12 h-1/12  mr-3 ">
                 <img src="/mentorlylogo.png" alt="Logo" className='w-full' />
             </div>
-            <div className="font-extrabold text-3xl"> Mentorly</div>
+            <div className="font-extrabold md:text-3xl text-xl "> Mentorly</div>
         </div>
       
-      <div className="">
-        <ul className='flex'>
-            <li className="px-15"><a href="/">Home</a></li>
-            <li className="px-15"><a href="/about">About</a></li>
-            <li className="px-15"><a href="/services">Services</a></li>
-            <li className="px-15"><a href="/contact">Contact</a></li>
-            <li className="px-15"><a href="/login">Login</a></li>
-        </ul>
-      </div>
-      <div className="">
-        <button className='bg-blue-700 rounded text-white p-3 '><a href='/profile'>Dashboard</a></button>
+        <div className="">
+          
+        </div>
+      <div className="flex justify-between items-center px-2 md:gap-8">
+        <ul className='flex justify-around md:gap-8'>
+              <li className="px-2"><Link to="/">Home</Link></li>
+              <li className="px-2"><Link to="/login">Login</Link></li>
+          </ul>
+        <button className='bg-blue-700 rounded text-white md:p-3 p-2 md:text-lg text-base '><Link to='/profile'>Dashboard</Link></button>
       </div>
     </div>
   )

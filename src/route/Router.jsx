@@ -13,7 +13,7 @@ import SessionDetails from "../components/SessionDetails";
 
 export default function Router() {
   return (
-    <div>
+    <div className="w-full ">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

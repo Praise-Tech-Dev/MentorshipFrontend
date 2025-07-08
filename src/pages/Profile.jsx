@@ -51,7 +51,7 @@ export default function Profile() {
 
           <div className="text-gray-800 text-sm space-y-2">
             <p>Email: {user?.email || "Not provided"}</p>
-            <p>Short Bio: {user?.shortBio || "No bio yet."}</p>
+            <p>Short Bio: {user?.bio || "No bio yet."}</p>
             <p>Skills: {user?.skills || "No skills yet"}</p>
             <p>Goals: {user?.goals || "No goals yet"}</p>
           </div>

@@ -5,7 +5,7 @@ import Header from './components/Header'
 
 export default function App() {
   return (
-    <div>
+    <div className=''>
       <header><Header/></header>
       <main><Router/></main>
       {/* <Router/> */}
