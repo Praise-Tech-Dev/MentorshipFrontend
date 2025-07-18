@@ -1,13 +1,16 @@
+import { useContext } from "react";
+import { UserContext } from "../components/UserContext";
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MentorsViewBox from "../components/MentorsViewBox";
 import MentorSideBar from "../components/MentorSideBar";
 
 export default function Profile() {
+  const { user, loading, error } = useContext(UserContext);
   // const user = { name: "James Jones", role: "Mentor" };
   const [openSideSection, setOpenSideSection] = useState(false);
   const location = useLocation();
-  const user = JSON.parse(localStorage.getItem("auth")).user;
+  // const user = JSON.parse(localStorage.getItem("auth")).user;
   console.log(user);
   
 
@@ -33,11 +36,11 @@ export default function Profile() {
         <section className="flex flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="w-20 h-20 rounded-full bg-gray-900 text-white flex items-center justify-center text-4xl">
-              {user.name[0]}
+              {user?.name[0]}
             </div>
             <div>
               <h1 className="text-lg font-medium text-gray-800">
-                {user.name}{" "}
+                {user?.name}{" "}
                 <a
                   href="/profile/edit"
                   className="text-sm text-blue-500 underline"
@@ -45,7 +48,7 @@ export default function Profile() {
                   edit
                 </a>
               </h1>
-              <p className="text-sm text-gray-600">{user.role}</p>
+              <p className="text-sm text-gray-600">{user?.role}</p>
             </div>
           </div>
 

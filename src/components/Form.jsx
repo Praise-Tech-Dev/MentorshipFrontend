@@ -23,7 +23,8 @@ export default function Form() {
     } 
 
     try{
-      const response = await axios.post("https://mentorshipbackend-fetn.onrender.com/api/auth/login", data)
+      const response  = axios.post("https://mentorshipbackend-fetn.onrender.com/api/auth/login", data, {withCredentials: true})
+
 
       console.log("Login successful", response.user);
 

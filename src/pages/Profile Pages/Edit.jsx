@@ -9,7 +9,7 @@ export default function ProfileEdit() {
   const [shortBio, setShortBio] = useState("");
   const [skillsSelected, setSkillsSelected] = useState([]);
   const [goals, setGoals] = useState("");
-  const userData = JSON.parse(localStorage.getItem("auth")).user;
+  // const userData = JSON.parse(localStorage.getItem("auth")).user;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default function ProfileEdit() {
     try {
       const response = await axios.put(
         `https://mentorshipbackend-fetn.onrender.com/api/profile/editProfile/${userData.id}`,
-        data
+        data, {withCredentials: true}
       );
       if (response.status === 200) {
         console.log("success");
